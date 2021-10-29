@@ -12,11 +12,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.get('/api/protected', checkIfAuthenticated, (req, res) => {
-    mongo.connect((err, result) => {
-        result.db('social').collection('posts').find({}).toArray().then(posts => {
-            res.send(posts);
-        }).finally(() => mongo.close());
-    })
+    res.send({data: 'that was good'});
 })
 
 app.listen(port, () => console.log(`listening on port ${port}`));

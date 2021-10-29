@@ -1,16 +1,17 @@
 import {Route, Redirect} from 'react-router-dom'
 
-const ProtectedRoute = ({ component: Component, ...rest }) => (
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+    return (
     <Route
-      {...rest}
-      render={props =>
+      render={() =>
         localStorage.getItem("token") ? (
-          <Component {...props} />
+          <Component {...rest} />
         ) : (
           <Redirect to="/" />
         )
       }
     />
-  );
+  )
+};
 
 export default ProtectedRoute;

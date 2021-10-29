@@ -1,5 +1,9 @@
 const Home = (props) => {
-    return (<h1>Home</h1>)
+    return (
+        <div>
+            <h1>{props.title}</h1>
+        </div>
+    )
 }
 
 export default Home;
